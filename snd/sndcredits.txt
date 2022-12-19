@@ -1,0 +1,9 @@
+The mod files were made using Andrew Scott's ptmid, 
+which converts midis to mods. The midi files were in the newkind
+source distribution
+
+These 4 track mod files were converted to s3m (scream tracker) tracks
+using ModPlug Tracker http://www.modplug.com
+
+GBA sound playback uses Krawall as of v1.4
+Krawall copyright 2002 Sebastian Kienzl <seb at riot dot org> http://mind.riot.org/krawall/

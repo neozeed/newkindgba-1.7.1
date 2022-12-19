@@ -1,0 +1,9 @@
+# <NAME> <W> <H> <IsRot> <DataName> <X> <Y> <IsTrans> <SpriteCount> (optional: name)
+#OAMOffset 8192
+#ColourDepth 16
+menu 64 64 F controls 0 106 F 4 radar
+radar 64 64 F radar 0 106 F 4
+big_s 16 16 F big_s 181 147 F 1
+big_e 16 16 F big_e 47 108 F 1
+big_c 8 8 F big_e 46 151 F 1
+end 0 0 F end 0 0 F 1 

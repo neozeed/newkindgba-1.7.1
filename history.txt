@@ -1,0 +1,259 @@
+Release 1.0 differences to PC version
+--------------------------------------
+1 mission extra - see source code for spoilers
+"find" can be performed only when docked
+A couple of extra ships appear, taken from Elite A
+
+
+Release 1.0 Known "problems"
+--------------------------
+Certain "line" graphic hacks do not display correctly.
+The scanner is not too useful due to the required scaling
+Auto docking computer can be bit crazy, but it won't crash you.
+Menus have 1 unused slot each. They aren't secret options.
+Ships at mid-distances are impossible to hit.
+
+
+Release 1.1 fix
+------------------
+After buying ECM system, can't buy any other add on.
+
+Release 1.2
+------------
+Vsync (screen update) waiting uses an interrupt, to cut down on battery use.
+Added a new way to change view. Press <button> + direction to shift to forward, back, left and right view. Most useful in conjuction with Speed toggle (button + up/down to speed up/slow down)
+Press R on the Short Range Chart to jump to the Data screen.
+
+Release 1.3 changes
+------------------
+Sped up the vertex calculating code a bit by putting variables in iwram and ditching malloc (dunno why it was in there really!). Should cut out some of the slow down when there are a few ships on screen.
+Added Pogoshell support to "Quit Game". Without Pogoshell the game just resets on "quitting".
+Added the option to use "GBA Palette" which is a brighter, easier to see palette.
+Now saves the game options (solid ships, instant dock, palette). Old saves aren't affected as there were a few unused bytes in the game save. Just update these options and save the game as normal.
+I've also included a PogoShell icon in the binary download (.elite.icon). Add this to the same dir as the elite.gba file when creating your PogoShell binary. The icon uses the same palette as the default Pogo theme.
+
+Release 1.4 changes
+------------------
+NEiMOD's nmod player is no longer available due to it being added to the Catapult
+game creation tool, so I've changed over to Krawall for sound. http://mind.riot.org/krawall/
+I initially tried Krawall but I couldn't get it to work correctly with my code for some reason.
+All sorted now though.
+The sound effects are a lot better, explosions and lasers don't cut each other out as before, and the
+intro tunes sound a bit "richer".
+
+Release 1.4a changes
+---------------------
+Added sleep mode - press L+R to get out of it
+Changed the website address in the docs
+
+Release 1.4b changes
+---------------------
+Fixed a bug that caused the destination planet to disappear on arrival after you
+had killed all the thargoids in witchspace and hyperspace out.
+Thanks to Paul Buck for spotting that one.
+
+Release 1.5 changes
+---------------------
+Hidden surface removal based on normals to camera-angle.
+Ships out of field of view no longer considered for drawing - speeds up the game
+a fair amount when a few ships are in the area.
+Ships at large-ish distances drawn as dots.
+Radar scale fixed
+Compass wobbliness fixed
+Star chart "wrap around" bug fixed. Previously, the cursor would jump to stars
+at the top of the chart when the cursor was left still for a moment close to the bottom.
+
+Release 1.5a changes
+---------------------
+I broke the autopilot (and possibly the missile tracking) last time round after
+playing about with ship distances. Sorted that out now and it seems to work as
+well as before.
+Thanks once again to Paul Buck for the feedback!
+
+Release 1.6
+-------------
+Thomas Metz (TM) made the following changes (unreleased 1.4a+):
+- Galactic Chart enlarged
+- Dark green in Commander Status etc. changed to light green
+- Police Vipers on scanner now represented by medium blue "pins"
+Finally, TM decreased the required numbers of kills for the particular rating
+levels. In particular, ELITE is now reached at about the half number of kills.
+   The reason is that TM felt the game became a bit boring in its second half
+after you have reached DEADLY and fulfilled all the missions.
+(unreleased 1.4a++)
+- The "gross productivity bug" (negative values were shown sometimes) seems
+to be fixed.
+- The Data on Planet screen can also be called by pressing the L button on
+the Galactic Chart screen (not only on Short Range Chart).
+- In flight mode menu items are activated with delay as long as A button is
+pressed to avoid subsequent uncontrolled laser shot.
+- In Commander Information screen, "Next Promotion" indicates how much the
+player has left (in terms of score) until the next promotion (100%). Not
+shown for ranks below AVERAGE (would be ridiculous).
+
+TM's changes encouraged me on to fix the following niggles:
++ fixed all compiler warnings, cleaned up the code
++ rolled back buggy 1.5 changes. The following are still included:
+  + Hidden surface removal based on normals to camera-angle.
+  + Ships out of field of view no longer considered for drawing
+  + Ships at large-ish distances drawn as dots.
+  + Radar scale fixed
+  + Compass wobbliness fixed
+  + Star chart "wrap around" bug fixed.
+Docking is perhaps not as easy as the BBC/C64 versions, but should be
+the same as the PC version that this port was based on.
+
+Release 1.6.1
+-------------
+Bug fixes - enemy lasers not drawn and ship dots drawn when the ship is too close.
+
+Version 1.6.2 (unreleased)
+--------------------------
+Chronologically, before 1.6.1 since this is another branch of development.
+However, version 1.6.5 (see below) pays attention to the changes in 1.6.1.
+Changes:
+- Zoom function for flight grid scanner. Shortcut keys: View Toggle + A/B
+  increases/decreases zoom factor.
+- Options: Distant objects as crosses or dots, ranking system, rating gauge.
+- Default options [set_default_options()] in the spirit of original game.
+- ID Computer has to be purchased before it can be used.
+- Short Range Chart: Plotting in three passes, first blobs, second fuel limit
+  circle, third labels. Blobs can be partly overwritten ('masked' printing) to
+  gain space for labels, however not by their 'own' labels. Size of blobs
+  correspond to radii of planets. Also unlabelled blobs are shown.
+- Visual adjustments on Short Range Chart. Labelling substantially improved.
+  Now several labels can appear in one row as long as they do not overlap. Plus a
+  few minor adjustments of the label positioning.
+- Bug in symmetricPlot() fixed.
+- Rounding bug in symmetricPlot... functions fixed. Now the suns and the blobs in
+  the Short Range Chart look much nicer.
+- Fixed a rounding bug on Galactic Chart. When pressing B, sometimes the cross
+  did not return to the origin.
+- Fixed round-off error when calculating distances to other planets.
+- Some colour adjustments and definitions. Colours in menus and buy/sell screen
+  changed for improved visibility and consistency.
+- Minor adjustments.
+/TM
+
+Version 1.6.3 (unreleased)
+--------------------------
+- Twinkling of distant objects (crosses or dots) to make them appear more vivid.
+- Starfield (more appropriate stardust field) appears also in front of planets
+  and suns.
+- Scanner: Dot on lollipop centred. Proper rounding of spot position in compass.
+- Short Range Chart: Label positioning more flexible.
+- Improvements on docking computer.
+- Score values to trigger missions slightly lower for easy mode.
+- Some code optimisation.
+- Minor adjustments.
+/TM
+
+Version 1.6.4 (unreleased)
+--------------------------
+- Asteroid mission will be repeated at random planet in random galaxy.
+- Criteria for succeeded docking probably more realistic.
+- Options: Docking computer may fail, since docking computer works more reliable
+  now.
+- Changed the vanish_point parameter for a number of objects to avoid sudden
+  change from (rather large) polygon to dot/spot.
+- Scanner: Bug concerning lollipops fixed. Perspective projection.
+- Minor changes.
+/TM
+
+Version 1.6.5 (unreleased)
+--------------------------
+- Planets have pseudo-random colours.
+- Sun placed at better positions when leaving security region of space station.
+- Bug concerning false targeting fixed.
+- Escape capsule: Flies entire way to next space station.
+                  Flight menu activated, but only Front View, Options and Pause.
+                  Console of Cobra Mk III not visible.
+                  Nobody will be killed when docking with escape capsule.
+- Escape capsule: Introduced damping of climb and roll levers to achieve same
+  behaviour of auto pilot as in the main loop.
+- Scanner: Shrink effect of distant points. Only simplified formulas, but seem
+  to work fine in the game.
+- Changes/improvements in planet descriptions.
+- Further improvement of docking computer.
+- 'Quit Game' and 'Exit': Quit Game returns to the opening screen, Exit leaves
+  the program.
+- Buffer for on-screen messages.
+- Scaling of Galaxy Chart and Find Planet screen improved by proper rounding.
+  Bug concerning positioning of cross on false planet when planet found fixed.
+- Short Range Chart: Range test for cross.
+                     Improved label positioning e.g. by two passes, first
+                     plotting short labels then long ones, more flexible
+                     positioning.
+                     Table of planet seeds to avoid 'waggling' (pseudo-random
+                     generator) in each plot pass (speed?).
+- Bugs earlier found in symmetricPlot() also fixed in symmetricPlot_clipped()
+  and symmetricPlot_wobbly_clipped().
+- Rewritten the part for drawing clipped scan lines and implemented as a
+  separate function.
+- Improved formatting on Buy/Sell, Equip Ship, Data on Planet and Commander
+  Information (Equipment list) screens.
+- Minor adjustments.
+/TM
+
+Version 1.6.6 (unreleased)
+--------------------------
+- Disabled selected items in menus changed to red.
+- Minor adjustments.
+/TM
+
+Version 1.6.6.1 (unreleased)
+--------------------------
+- Quick Save prepared (regular save memory extended).
+/TM
+
+Version 1.6.7 (unreleased)
+--------------------------
+- Sparks when laser hits target.
+- Quick Save.
+- MAX_UNIV_OBJECTS was defined twice (in elite.h
+  and space.h). This caused severe memory allocation problems!
+/TM
+
+Version 1.6.8 (unreleased)
+--------------------------
+- Quick Save debugged for escape capsule mode.
+/TM
+
+Version 1.6.9 (unreleased)
+--------------------------
+- Pins on scanner only coloured if ID unit purchased.
+- Further debugging of Quick Save.
+- Minor bug-fixes and adjustments.
+/TM
+
+Version 1.6.10 (unreleased)
+--------------------------
+- Fix stars in background.
+- Minor bug-fixes.
+/TM
+
+Release 1.7
+-----------
+- Option: Docking Music on/off.
+- Minor bug-fixes and adjustments.
+/TM
+
+Release 1.7.1
+-------------
+No new features, just minor bug fixes:
+  Spurious planet no longer shown on short range chart 
+  Quick save size was not calculated correctly - this fix introduces an incompatibility with previous saves. 
+
+  You may lose a previous Quick Save or data from save slot 8!! To work around this possible loss:
+  Back up your save file, just in case. 
+  Then for quick save:
+    Use version 1.7
+    Load the quick save and play until you can save normally (dock).
+    Save in slot any one of slots 1-7
+    Start using version 1.7.1
+  For slot 8 save:
+    Use version 1.7
+    Load save slot 8
+    Save in a slot other than slot 8 (i.e. one of save slots 1 to 7)
+    Start using version 1.7.1
+/RQ
